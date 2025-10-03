@@ -34,7 +34,7 @@ int main(){
     struct epoll_event events[1024];
     int size=sizeof(events)/sizeof(events[0]);
     while(1){
-        int readyNum=epoll_wait(epfd,events,size,-1);
+        int readyNum=epoll_wait(epfd,events,size,-1);//检测是否发生事件并将事件写入传出参数中
         for(int i=0;i<readyNum;i++){
             int fd=events[i].data.fd;
             if(fd==lfd){
