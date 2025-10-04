@@ -1,5 +1,5 @@
 #include"EPollPoller.h"
-#include"Logger.h"
+#include"../utils/Logger.h"
 #include"Channel.h"
 #include<errno.h>
 #include<unistd.h>
@@ -19,7 +19,7 @@ EPollPoller::EPollPoller(EventLoop*loop)
     , epollfd_(::epoll_create1(EPOLL_CLOEXEC))
     , Resultevents_(kInitEventListSize)
 {
-    if(epollfd_<9){
+    if(epollfd_<0){
         LOG_FATAL("epoll_create:%d\n",errno);
     }
 }
@@ -37,7 +37,7 @@ if there are some events have been traggered,then we put information to activeCh
 ,give other mudles
 */
 Timestamp EPollPoller::poll(int timeoutMs,ChannelList*activeChannels){
-    LOG_INFO("func%s =>fd total count:%u\n",__FUNCTION__,channelHash_.size());
+    LOG_INFO("func  %s =>fd total count:%u\n",__FUNCTION__,channelHash_.size());
     
     int numEvents=::epoll_wait(epollfd_,&*Resultevents_.begin(),static_cast<int>(Resultevents_.size()),timeoutMs);
     int saveErrno=errno;

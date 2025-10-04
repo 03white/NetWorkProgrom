@@ -1,4 +1,4 @@
-#pragma once;
+#pragma once
 #include<iostream>
 #include<string>
 #include"noncopyable.h"
@@ -62,19 +62,19 @@ private:
     Logger(){}
 };
 
-void Logger::log(std::string msg){
+inline void Logger::log(std::string msg){
     switch(logLevel_){
         case LOG::DEBUG:
-            std::cout<<"[DEBUG]";
+            std::cout<<"[DEBUG] : ";
             break;
         case LOG::INFO:
-            std::cout<<"[INFO]";
+            std::cout<<"[INFO] : ";
             break;
         case LOG::ERROR:
-            std::cout<<"[ERROR]";
+            std::cout<<"[ERROR] : ";
             break;
         case LOG::FATAL:
-            std::cout<<"[FATAL]";
+            std::cout<<"[FATAL] : ";
             break;
         default:
             break;

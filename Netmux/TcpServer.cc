@@ -17,7 +17,7 @@ TcpServer::TcpServer(
     EventLoop*loop,
     const InetAddress &listenAddr,
     const std::string &name,
-    Option option=kNoReusePort)
+    Option option)
     : ipPort_(listenAddr.toIpPort())
     , name_(name)
     , started_(false)

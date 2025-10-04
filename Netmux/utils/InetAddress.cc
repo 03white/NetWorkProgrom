@@ -4,7 +4,7 @@
 /**************
  *public method
  **************/
-InetAddress::InetAddress(uint16_t port=0,std::string ip="0.0.0.0"){
+InetAddress::InetAddress(uint16_t port,std::string ip){
     bzero(&addr_,sizeof(addr_));
     addr_.sin_family=AF_INET;
     addr_.sin_port=htons(port);

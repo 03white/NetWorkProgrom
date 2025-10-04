@@ -4,14 +4,14 @@
 #include<time.h>
 class Timestamp{
 public:
-    Timestamp();
+    Timestamp():microSecondsSinceEpoch_(::time(nullptr)){}
     explicit Timestamp(int64_t microSecondsSinceEpoch){microSecondsSinceEpoch_=microSecondsSinceEpoch;}
     static Timestamp now(){return Timestamp(time(NULL));}
     std::string toString()const;
 private:
    int64_t microSecondsSinceEpoch_; 
 };
-std::string Timestamp::toString()const{
+inline std::string Timestamp::toString()const{
     char buf[128]={0};
     tm *tm_time=localtime(&microSecondsSinceEpoch_);
     snprintf(buf,128,"%4d/%02d/%02d %02d:%02d:%02d",

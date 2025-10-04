@@ -1,7 +1,8 @@
 #include"Thread.h"
 #include"CurrentThread.h"
 #include<semaphore.h>
-
+//static member 
+std::atomic_int Thread::numCreated_(0);
 Thread::Thread(ThreadFunc func,const std::string &name)
     : started_(false)
     , joined_(false)
@@ -9,12 +10,13 @@ Thread::Thread(ThreadFunc func,const std::string &name)
     , func_(std::move(func))
     , name_(name)
 {
-
+    setDefaultName();
 }
 
 Thread::~Thread(){
-
-
+    if(started_&&!joined_){
+        thread_->detach();
+    }
 }
 
 void Thread::start(){

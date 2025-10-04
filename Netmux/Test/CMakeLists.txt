@@ -1,0 +1,8 @@
+project(Test)
+file(GLOB ACCEPTOR ${PROJECT_SOURCE_DIR}/../Acceptor/*.cc *.h)
+file(GLOB REACTOR ${PROJECT_SOURCE_DIR}/../reactor/*.cc *.h)
+file(GLOB UTILS ${PROJECT_SOURCE_DIR}/../utils/*.cc *.h)
+file(GLOB MAIN ${PROJECT_SOURCE_DIR}/../*.cc *.h)
+set(SRC ${ACCEPTOR} ${REACTOR} ${UTILS} ${MAIN})
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/bin)
+add_executable(${PROJECT_NAME} echoServer.cpp ${SRC})

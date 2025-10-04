@@ -1,0 +1,75 @@
+# 编译产物
+build/
+*.o
+*.a
+*.so
+*.so.*
+*.dylib
+
+# 可执行文件
+bin/
+*.exe
+*.out
+*.app
+
+# 依赖目录
+deps/
+third_party/
+lib/
+
+# 日志文件
+*.log
+logs/
+
+# 临时文件
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.*.swp
+.*.swo
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# IDE 文件
+.vscode/
+.idea/
+*.code-workspace
+*.sln
+*.vcxproj*
+*.vcproj
+*.cmake
+
+# CMake 生成文件
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# 覆盖率和测试文件
+*.gcno
+*.gcda
+*.gcov
+gmon.out
+
+# 包管理文件
+conanbuildinfo.*
+conaninfo.txt
+
+# 文档生成
+docs/_build/
+html/
+latex/
+
+# 备份文件
+*.bak
+*.backup
+
+# 本地配置文件
+local.config
+.env

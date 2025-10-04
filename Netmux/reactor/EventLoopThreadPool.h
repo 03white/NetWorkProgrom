@@ -1,5 +1,6 @@
 #pragma once
-#include"noncopyable.h"
+#include"../utils/noncopyable.h"
+#include"EventLoopThread.h"
 #include<functional>
 #include<string>
 #include<vector>

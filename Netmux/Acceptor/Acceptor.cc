@@ -18,9 +18,9 @@ static int createNonblocking(){
  *************/
 Acceptor::Acceptor(EventLoop*loop,const InetAddress &listenAddr,bool reuseport)
     : listenning_(false)
+    , loop_(loop)
     , acceptSocket_(createNonblocking())
     , acceptChannel_(loop,acceptSocket_.fd())
-    , loop_(loop)
 {
     acceptSocket_.setReuseAddr(true);
     acceptSocket_.setReusePort(true);

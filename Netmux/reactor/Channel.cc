@@ -40,14 +40,15 @@ void Channel::tie(const std::shared_ptr<void>&obj){
 }
 
 void Channel::remove(){
-
+    loop_->removeChannel(this);
 }
 
 /***********
  private method 
  ***********/
 void Channel::update(){
-    loop_;// use EventLoop method
+    loop_->updateChannel(this);// use EventLoop method
+
 }
 
 void Channel::handleEventWithGuard(Timestamp receiveTIme){

@@ -3,10 +3,10 @@
 /************
 public method
 ************/
-EventLoopThread::EventLoopThread(const ThreadInitCallback &cb=ThreadInitCallback(),const std::string &name=std::string())
+EventLoopThread::EventLoopThread(const ThreadInitCallback &cb,const std::string &name)
     : loop_(nullptr)
     , exiting_(nullptr)
-    , thread_(std::bind(&EventLoopThread::callback_,this),name)
+    , thread_(std::bind(&EventLoopThread::threadFunc,this),name)
     , mutex_()
     , cond_()
     , callback_(cb)
@@ -40,7 +40,9 @@ void EventLoopThread::threadFunc(){
     EventLoop loop;
     if(callback_){
         callback_(&loop);
-    }{
+    }
+    
+    {
         std::unique_lock<std::mutex>lock(mutex_);
         loop_=&loop;
         cond_.notify_one();

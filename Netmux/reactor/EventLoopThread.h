@@ -1,6 +1,6 @@
 #pragma once
-#include"noncopyable.h"
-#include"./utils/Thread.h"
+#include"../utils/noncopyable.h"
+#include"../utils/Thread.h"
 #include<functional>
 #include<mutex>
 #include<condition_variable>
