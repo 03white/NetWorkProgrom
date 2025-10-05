@@ -50,13 +50,21 @@ int main(){
 }
 ```
 使用这个例子的方法如下:
-```shell
+```cpp
 //克隆本项目
 git clone git@github.com:03white/NetherLink-static.git / https://github.com/03white/NetherLink-static.git
+```
+
+```cpp
  //构建项目makefile，这里默认使用make作为构建工具
 cmake -S . -B build
+```
+
+```cpp
 //构建Test目标,运行这个命令后,你会在Netmux/Test/build/bin下找到Test运行文件，你可以运行它。
 cmake --build build --target Test
+```
+```cpp
 //除了构建Test目标外，我们还可以构建Netmux目标，在Netmux/build/lib下生成静态库
 cmake --build build --target Netmux
 ```
